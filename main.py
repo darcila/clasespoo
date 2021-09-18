@@ -7,7 +7,9 @@ layout = [  [sg.Text('Some text on Row 1')],
             [sg.Button('Ok'), sg.Button('Cancel')] ]
 
 # Create the Window
+
 window = sg.Window('Titulo de la clase con git con el conflicto', layout)
+
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
     event, values = window.read()
