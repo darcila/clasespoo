@@ -7,7 +7,7 @@ layout = [  [sg.Text('Some text on Row 1')],
             [sg.Button('Ok'), sg.Button('Cancel')] ]
 
 # Create the Window
-window = sg.Window('Titulo xxxx', layout)
+window = sg.Window('Titulo para la clase', layout)
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
     event, values = window.read()
