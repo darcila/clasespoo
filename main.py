@@ -1,16 +1,18 @@
-import sys
-from PySide6.QtWidgets import QApplication, QPushButton
-from PySide6.QtCore import Slot
+import PySimpleGUI as sg
 
-@Slot()
-def say_hello():
- print("Button clicked, Hello!")
+sg.theme('DarkAmber')   # Add a touch of color
+# All the stuff inside your window.
+layout = [  [sg.Text('Some text on Row 1')],
+            [sg.Text('Enter something on Row 2'), sg.InputText()],
+            [sg.Button('Ok'), sg.Button('Cancel')] ]
 
-# Create the Qt Application
-app = QApplication(sys.argv)
-# Create a button, connect it and show it
-button = QPushButton("Click me")
-button.clicked.connect(say_hello)
-button.show()
-# Run the main Qt loop
-app.exec()
+# Create the Window
+window = sg.Window('Window Title', layout)
+# Event Loop to process "events" and get the "values" of the inputs
+while True:
+    event, values = window.read()
+    if event == sg.WIN_CLOSED or event == 'Cancel': # if user closes window or clicks cancel
+        break
+    print('You entered ', values[0])
+
+window.close()
